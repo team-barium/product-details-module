@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js[x]$/,
+        test: /\.js || jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -17,6 +17,10 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           },
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]'
       }
     ]
   },
