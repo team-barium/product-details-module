@@ -1,8 +1,11 @@
 import React from 'react';
-import style from './app.css';
+import style from '../styles/app.css';
+import Hero from './Hero';
 
 const App = (props) => (
-  <div className={style.red}>Hello</div>
+  <div>
+    <Hero />
+  </div>
 );
 
 export default App;
