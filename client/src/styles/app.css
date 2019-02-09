@@ -1,3 +1,4 @@
-.red {
+.container {
+  display: flex;
   color: red;
 }

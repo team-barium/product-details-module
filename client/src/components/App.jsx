@@ -3,7 +3,7 @@ import style from '../styles/app.css';
 import Hero from './Hero';
 
 const App = (props) => (
-  <div>
+  <div className={style.container}>
     <Hero />
   </div>
 );
