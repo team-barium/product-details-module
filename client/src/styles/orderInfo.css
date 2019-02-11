@@ -1,11 +1,14 @@
 .container {
-  
+  display: block;
+  padding: 0 15px;
+  box-sizing: border-box;
+  animation: d .25s forwards;
 }
 
 .background {
-  
+  background-color: #fff;
+  padding: 20px;
 }
 
 .infoBar {
-
 }

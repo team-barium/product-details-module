@@ -1,11 +1,29 @@
-.container {
+@font-face {
+  font-family: 'AdineuePRO';
+  src: url('./fonts/adineuePRO-Bold.woff2') format('woff2');
+}
 
+.container {
+  display: block;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .productCategory {
-  
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  color: #767677;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 17px;
 }
 
 .productName {
-  
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  font-size: 30px;
+  line-height: 28px;
+  font-family: AdineuePRO;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }

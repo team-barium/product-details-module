@@ -1,4 +1,16 @@
-.container {
-  display: flex;
-  color: red;
+@font-face {
+  font-family: 'AdihausDIN';
+  src: url('./fonts/adiHausDIN-Regular.woff2') format('woff2');
 }
+
+.container {
+  display: block;
+  font-family: AdihausDIN;
+  background-color: #ebedee;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+}
+

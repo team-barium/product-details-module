@@ -3,8 +3,8 @@ import style from '../styles/ratingReviews.css';
 
 const RatingReviews = ({ count, rating }) => {
   return (
-    <div>
-      Stars: {rating} Read all {count} reviews
+    <div className={style.container}>
+      Stars: {rating} <a className={style.count}>Read all {count} reviews</a>
     </div>
   );
 };
