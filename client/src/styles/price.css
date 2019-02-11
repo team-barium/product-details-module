@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.regularPrice {
+  color: black;
+}
+
+.salePrice {
+  color: #e63f3f;
+  margin-right: 5px;
+}
+
+.strikeoutPrice {
+  color: #767677;
+  text-decoration: line-through;
+}
