@@ -2,13 +2,38 @@
   margin-bottom: 10px;
 }
 
+.starRating {
+  border-collapse: collapse;
+  display: inline-flex;
+  box-sizing: border-box;
+}
+
 .count {
   vertical-align: bottom;
-  padding-left: 1px;
+  padding-left: 5px;
   padding-right: 1px;
   text-decoration: underline;
   cursor: pointer;
   font-size: 14px;
   line-height: 20px;
   transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
+}
+
+.innerStar {
+  height: 1em;
+  font-size: 1em;
+  color: #000;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.outerStar {
+  display: inline-block;
+  height: 1em;
+  font-size: 1em;
+  color: #000;
+  position: relative;
 }
