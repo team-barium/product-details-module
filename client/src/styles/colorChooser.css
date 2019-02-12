@@ -1,27 +1,104 @@
-.container {
+@font-face {
+  font-family: 'AdineuePRO-Bold';
+  src: url('./fonts/adineuePRO-Bold.woff2') format('woff2');
+}
 
+@font-face {
+  font-family: 'AdineuePRO';
+  src: url('./fonts/adineuePRO-Regular.woff2') format('woff2');
+}
+
+.container {
+  margin-top: 0;
+  margin-bottom: 40px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .title {
-
+  font-family: AdineuePRO-Bold;
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  width: 100%;
+  margin: 0 0 10px 0;
+  padding: 0;
 }
 
 .colorLabels {
-
+  color: #767677;
+  width: 100%;
+  font-size: 13px;
+  line-height: 17px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .variationOuter {
-
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 
 .variationInner {
-
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .colorVariation {
-
+  flex: 1 0 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(25% - 5px);
+  max-width: 70px;
+  object-fit: contain;
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+  display: block;
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .colorVariationCurrent {
+  flex: 1 0 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(25% - 5px);
+  max-width: 70px;
+  object-fit: contain;
+  cursor: auto;
+  margin: 0 10px 10px 0;
+  display: block;
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+}
 
+.checkmark {
+  border-radius: 50%;
+  position: absolute;
+  background-size: cover;
+  right: 0;
+  cursor: auto;
+  width: 33%;
+  height: 32%;
+}
+
+.image {
+  border-radius: 50%;
+  padding-bottom: 100%;
+  background-size: cover;
 }
