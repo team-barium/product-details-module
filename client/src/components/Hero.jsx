@@ -55,7 +55,7 @@ class Hero extends React.Component {
 
   fetchProduct() {
     axios
-      .get('/abibas/product', { params: { id: 1 } })
+      .get('/abibas/product', { params: { id: 2 } })
       .then((response) => {
         this.setState({
           productDetails: response.data.product, 

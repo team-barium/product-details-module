@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../styles/colorChooser.css';
 
-const ColorChooser = ({ colors, colorImages, colorIds }) => {
+const ColorChooser = ({ colors, colorImages, colorIds, productId }) => {
   return (
     <div className={style.container}>
       <div className={style.title}>
@@ -12,13 +12,24 @@ const ColorChooser = ({ colors, colorImages, colorIds }) => {
       </div>
       <div className={style.variationOuter}>
         <div className={style.variationInner}>
-          (list of color variation selectors here)
-          <div className={style.colorVariation}>
-            Color Choice
-          </div>
-          <div className={style.colorVariationCurrent}>
-            Selected Color
-          </div>
+          {colorIds.map((id, key) => {
+            let imageUrl = colorImages[colorIds.indexOf(id)];
+            if (id === productId) {
+              return (
+                  <div key={key} className={style.colorVariationCurrent}>
+                    <div className={style.checkmark} style={{backgroundImage: "url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/check-icon.png')"}}>
+                    </div>
+                    <div style={{backgroundImage: `url(${imageUrl})`}} className={style.image} />
+                  </div>
+              );
+            } else {
+              return (
+                  <div key={key} className={style.colorVariation}>
+                    <div style={{backgroundImage: `url(${imageUrl})`}} className={style.image} />
+                  </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

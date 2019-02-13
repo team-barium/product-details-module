@@ -23,13 +23,13 @@ class OrderInfo extends React.Component {
     let availableColors = this.props.details.availableColors;
     let availableColorImages = this.props.availableColorImages;
     let sizes = this.props.details.sizes;
-
+    let productId = this.props.details.productId;
     return (
       <div className={style.container}>
         <div className={style.background}>
           <div className={style.infoBar}>
             <ProductInfo name={name} tags={tags} reviewCount={reviewCount} reviewRating={reviewRating} retailPrice={retailPrice} salePrice={salePrice} />
-            <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} />
+            <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} productId={productId} />
             <CartForm sizes={sizes} />
           </div>
         </div>
