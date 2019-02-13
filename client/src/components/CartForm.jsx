@@ -41,7 +41,7 @@ class CartForm extends React.Component {
           </div>
         </div>
         <div className={style.addToBagRow}>
-          <button type="submit" className={style.addToBagButton}>Add To Bag</button>
+          <button type="submit" className={style.addToBagButton}>Add To Bag<div className={style.arrow}>&#x027F6;</div></button>
           <button type="submit" className={style.wishlistButton}>
             <div className={style.heartIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png')"}}></div>
           </button>
