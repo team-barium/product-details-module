@@ -3,13 +3,24 @@
   padding: 0 15px;
   box-sizing: border-box;
   animation: d .25s forwards;
-  width: 33.333333%;
+  width: 100%;
+  float: none;
 }
 
 .background {
   background-color: #fff;
-  padding: 20px;
+  padding: 0;
 }
 
 .infoBar {
 }
+
+@media (min-width: 960px) {
+  .container {
+    width: 33.33333%;
+  }
+  .background {
+    padding: 20px;
+  }
+}
+

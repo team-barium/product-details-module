@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../styles/imageViewer.css';
 
 class ImageViewer extends React.Component {
   constructor(props) {
@@ -9,9 +10,33 @@ class ImageViewer extends React.Component {
   }
 
   render() {
+    let images = this.props.images;
     return (
-      <div>
-        ImageViewer
+      <div className={style.container}>
+        <div className={style.imageViewer}>
+          <div className={style.imageContainer}>
+            <img className={style.image} src={images[0]} />
+            <div className={style.leftArrow}>
+              <div className={style.arrowShadow}>&#x027F5;</div>
+              <div className={style.arrow}>&#x027F5;</div>
+            </div>
+            <div className={style.rightArrow}>
+              <div className={style.arrowShadow}>&#x027F6;</div>
+              <div className={style.arrow}>&#x027F6;</div>
+            </div>
+          </div>
+          <div className={style.carousel}>
+            <div className={style.carouselContainer}>
+            {images.map((image, key) => {
+              return (
+                <div className={style.thumbnail}>
+                  <img className={style.thumbnailImage} src={image} />
+                </div>
+              );
+            })}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

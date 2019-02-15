@@ -3,6 +3,7 @@ import axios from 'axios';
 import style from '../styles/hero.css';
 import OrderInfo from './OrderInfo';
 import ImageViewer from './ImageViewer';
+import SaleBadge from './SaleBadge';
 
 class Hero extends React.Component {
   constructor(props) {
@@ -72,10 +73,14 @@ class Hero extends React.Component {
     let retailPrice = this.state.productDetails.retailPrice;
     let sale = salePrice / retailPrice * 100;
     return (
-      <div className={style.container}>
-        <ImageViewer images={this.state.productDetails.images} />
-        <SaleBadge sale={sale} />
-        <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+      <div>
+        <div className={style.container}>
+          <ImageViewer images={this.state.productDetails.images} />
+          <SaleBadge sale={sale} />
+          <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+        </div>
+        <div className={style.background}>
+        </div>
       </div>
     )
   }
