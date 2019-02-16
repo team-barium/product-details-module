@@ -13,6 +13,7 @@ class CartForm extends React.Component {
     this.hoverHeart = this.hoverHeart.bind(this);
     this.offHoverHeart = this.offHoverHeart.bind(this);
     this.toggleHeart = this.toggleHeart.bind(this);
+    this.addToBag = this.addToBag.bind(this);
   }
 
   hoverHeart() {
@@ -33,6 +34,10 @@ class CartForm extends React.Component {
       heartToggle: !this.state.heartToggle,
       heartUrl: this.state.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled.png'
     });
+  }
+
+  addToBag(e) { //not functional
+    e.preventDefault(); //prevent page refresh on click
   }
 
   render() {
@@ -65,7 +70,7 @@ class CartForm extends React.Component {
           </div>
         </div>
         <div className={style.addToBagRow}>
-          <button type="submit" className={style.addToBagButton}>Add To Bag<div className={style.arrow}>&#x027F6;</div></button>
+          <button type="submit" className={style.addToBagButton} onClick={this.addToBag}>Add To Bag<div className={style.arrow}>&#x027F6;</div></button>
           <button type="submit" className={style.wishlistButton} onClick={this.toggleHeart} onMouseOver={this.hoverHeart} onMouseOut={this.offHoverHeart}>
             <div className={style.heartIcon} style={{backgroundImage:`url(${this.state.heartUrl})`}}></div>
           </button>

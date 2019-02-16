@@ -147,7 +147,11 @@
   transform: translate(-3px,-3px);
 }
 
-.addToBagButton:after {
+.addToBagButton:hover {
+  color: gray;
+}
+
+.addToBagButton::after {
   content: "";
   display: block;
   position: absolute;
@@ -158,8 +162,12 @@
   box-shadow: inset 0 0 0 1px #000;
 }
 
-.addToBagButton:hover {
-  color: gray;
+.addToBagButton:active {
+  transform: translate(3px, 3px);
+}
+
+.addToBagButton:active::after {
+  transform: translate(-3px, -3px);
 }
 
 .arrow {
