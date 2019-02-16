@@ -82,12 +82,24 @@
   white-space: nowrap;
 }
 
-.carouselNext {
-
+.carouselPrev {
+  top: 0;
+  border-top: 3px solid #000;
 }
 
-.carouselPrev {
+.carouselNext {
+  bottom: 0;
+  border-bottom: 3px solid #000;
+}
 
+.carouselButton {
+  display: inline-block;
+  margin: 0;
+  border: none;
+  width: 24px;
+  height: 22.5px;
+  cursor: pointer;
+  background-size: cover;
 }
 
 .thumbnail {
@@ -98,13 +110,14 @@
   height: 60px;
   width: 60px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .thumbnailImage {
   display: block;
-  max-height: 52px;
-  max-width: 52px;
   margin: auto;
+  height: 60px;
+  width: 60px;
   box-sizing: border-box;
 }
 
@@ -121,26 +134,69 @@
   .imageViewer {
     width: 100%;
   }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
   .carousel {
     overflow-y: visible;
     overflow-x: visible;
     width: auto;
   }
   .carouselContainer {
-    height: auto;
+    display: block;
+    height: 566px;
+    width: 54px;
     position: absolute;
     left: 15px;
     top: 80px;
     bottom: 60px;
     overflow: hidden;
-    display: block;
+    white-space: nowrap;
+  }
+  .carouselPrev {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    background: transparent;
+    z-index: 30;
+    box-sizing: border-box;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .carouselNext {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    background: transparent;
+    z-index: 30;
+    box-sizing: border-box;
+    justify-content: center;
+    cursor: pointer;
   }
   .thumbnail {
+    display: block;
     border: 1px solid #767677;
+    position: relative;
     margin-bottom: 10px;
     cursor: pointer;
     height: 54px;
     width: 54px;
     box-sizing: border-box;
+  }
+  .thumbnailImage {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+@media (max-width: 959px) {
+  .carouselPrev {
+    display: none!important;
+  }
+  .carouselNext {
+    display: none!important;
   }
 }

@@ -27,13 +27,19 @@ class ImageViewer extends React.Component {
           </div>
           <div className={style.carousel}>
             <div className={style.carouselContainer}>
-            {images.map((image, key) => {
-              return (
-                <div className={style.thumbnail}>
-                  <img className={style.thumbnailImage} src={image} />
-                </div>
-              );
-            })}
+              <div className={style.carouselPrev}>
+                <button className={style.carouselButton} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/arrow-up-icon.png')"}} />
+              </div>
+              {images.map((image, key) => {
+                return (
+                  <div className={style.thumbnail}>
+                    <img className={style.thumbnailImage} src={image} />
+                  </div>
+                );
+              })}
+              <div className={style.carouselNext}>
+                <button className={style.carouselButton} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/arrow-down-icon.png')"}} />
+              </div>
             </div>
           </div>
         </div>
