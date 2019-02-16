@@ -18,6 +18,7 @@ class ImageViewer extends React.Component {
     this.setImage = this.setImage.bind(this);
     this.shiftUp = this.shiftUp.bind(this);
     this.shiftDown = this.shiftDown.bind(this);
+    this.shiftMultiple = this.shiftMultiple.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -39,10 +40,16 @@ class ImageViewer extends React.Component {
       this.setState({
         imageIndex: this.state.imageIndex - 1
       });
+      if (this.state.imageIndex - 1 < this.state.firstItem) {
+        this.shiftMultiple(this.state.imageIndex - 1 - this.state.firstItem);
+      }
     } else {
       this.setState({
         imageIndex: images.length - 1
       });
+      if (images.length - 1 > this.state.lastItem) {
+        this.shiftMultiple(images.length - 1 - this.state.lastItem);
+      }
     }
   }
 
@@ -52,22 +59,32 @@ class ImageViewer extends React.Component {
       this.setState({
         imageIndex: this.state.imageIndex + 1
       });
+      if (this.state.imageIndex + 1 > this.state.lastItem) {
+        this.shiftMultiple(this.state.imageIndex + 1 - this.state.lastItem);
+      }
     } else {
       this.setState({
         imageIndex: 0
       });
+      if (this.state.firstItem > 0) {
+        this.shiftMultiple(0 - this.state.firstItem)
+      }
     }
   }
 
   setImage(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     this.setState({
       imageIndex: Number(e.target.name)
     });
   }
   
   shiftDown(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     this.setState({
       upArrowDisplay: this.state.firstItem === 1 ? "none" : "flex",
       downArrowDisplay: this.state.numItems > 8 ? "flex" : "none",
@@ -78,7 +95,9 @@ class ImageViewer extends React.Component {
   }
 
   shiftUp(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     this.setState({
       upArrowDisplay: this.state.firstItem >= 0 ? "flex" : "none",
       downArrowDisplay: this.state.lastItem === this.state.numItems - 2 ? "none": "flex",
@@ -86,6 +105,17 @@ class ImageViewer extends React.Component {
       lastItem: this.state.lastItem + 1,
       shiftCount: this.state.shiftCount - 1
     });
+  }
+
+  shiftMultiple(n) {
+    this.setState({
+      upArrowDisplay: this.state.firstItem + n <= 0 ? "none" : "flex",
+      downArrowDisplay: this.state.lastItem + n < this.state.numItems - 1 ? "flex" : "none",
+      firstItem: this.state.firstItem + n,
+      lastItem: this.state.lastItem + n,
+      shiftCount: this.state.shiftCount - n
+    });
+
   }
 
   render() {
