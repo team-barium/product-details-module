@@ -9,24 +9,8 @@ class Hero extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productDetails: {
-          availableColors: [1],
-          colors: [""],
-          heartToggle: false,
-          images: [""],
-          name: '',
-          productId: 0,
-          retailPrice: 0,
-          reviewCount: 0,
-          reviewRating: 0,
-          salePrice: 0,
-          sizes: {
-            '5': 1,
-            '5h': 0
-          },
-          tags: ["Women's", "Running"],
-          thumbnails: [""]
-      },
+      loadedData: false,
+      productDetails: null,
         /* Example Details
           availableColors: [1, 2, 3]
           colors: ["Cloud White", "Grey", "Ash Pearl"]
@@ -60,7 +44,8 @@ class Hero extends React.Component {
       .then((response) => {
         this.setState({
           productDetails: response.data.product,
-          availableColorImages: response.data.colorThumbnails
+          availableColorImages: response.data.colorThumbnails,
+          loadedData: true
         });
       })
       .catch((err) => {
@@ -69,20 +54,25 @@ class Hero extends React.Component {
   }
 
   render() {
-    let salePrice = this.state.productDetails.salePrice;
-    let retailPrice = this.state.productDetails.retailPrice;
-    let sale = salePrice / retailPrice * 100;
-    return (
-      <div>
+    if (this.state.loadedData) {
+      let salePrice = this.state.productDetails.salePrice;
+      let retailPrice = this.state.productDetails.retailPrice;
+      let sale = salePrice / retailPrice * 100;
+      let images = this.state.productDetails.images;
+      return (
+        <div>
         <div className={style.container}>
-          <ImageViewer images={this.state.productDetails.images} />
+          <ImageViewer images={images} />
           <SaleBadge sale={sale} />
           <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
         </div>
         <div className={style.background}>
         </div>
-      </div>
-    )
+        </div>
+        );
+    } else {
+      return null;
+    }
   }
 }
 

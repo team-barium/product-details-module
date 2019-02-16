@@ -21,6 +21,19 @@ class ImageViewer extends React.Component {
     this.shiftMultiple = this.shiftMultiple.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      numItems: this.props.images.length,
+      lastItem: this.props.images.length > 7 ? 7 : this.props.images.length - 1
+    });
+
+    if (this.props.images.length > 7) {
+      this.setState({
+        downArrowDisplay: "flex"
+      });
+    }
+  }
+
   componentWillReceiveProps(props) {
     this.setState({
       numItems: props.images.length,
