@@ -35,12 +35,12 @@ class Hero extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchProduct();
+    this.fetchProduct(this.props.productId);
   }
 
-  fetchProduct() {
+  fetchProduct(productId) {
     axios
-      .get('/abibas/product', { params: { id: 2 } })
+      .get('/abibas/product', { params: { id: productId } })
       .then((response) => {
         this.setState({
           productDetails: response.data.product,
@@ -60,14 +60,14 @@ class Hero extends React.Component {
       let sale = salePrice / retailPrice * 100;
       let images = this.state.productDetails.images;
       return (
-        <div>
-        <div className={style.container}>
-          <ImageViewer images={images} />
-          <SaleBadge sale={sale} />
-          <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
-        </div>
         <div className={style.background}>
-        </div>
+          <div className={style.container}>
+            <ImageViewer images={images} />
+            <SaleBadge sale={sale} />
+            <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+          </div>
+          <div className={style.background}>
+          </div>
         </div>
         );
     } else {
