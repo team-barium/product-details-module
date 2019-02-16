@@ -32,6 +32,7 @@ class Hero extends React.Component {
       availableColorImages: []
     }
     this.fetchProduct = this.fetchProduct.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +54,11 @@ class Hero extends React.Component {
       })
   }
 
+  changeColor(e) {
+    e.preventDefault();
+    this.fetchProduct(Number(e.target.getAttribute('id')));
+  }
+
   render() {
     if (this.state.loadedData) {
       let salePrice = this.state.productDetails.salePrice;
@@ -64,7 +70,7 @@ class Hero extends React.Component {
           <div className={style.container}>
             <ImageViewer images={images} />
             <SaleBadge sale={sale} />
-            <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+            <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} changeColor={this.changeColor} />
           </div>
           <div className={style.background}>
           </div>

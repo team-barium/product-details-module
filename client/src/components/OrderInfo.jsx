@@ -29,7 +29,7 @@ class OrderInfo extends React.Component {
         <div className={style.background}>
           <div className={style.infoBar}>
             <ProductInfo name={name} tags={tags} reviewCount={reviewCount} reviewRating={reviewRating} retailPrice={retailPrice} salePrice={salePrice} />
-            <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} productId={productId} />
+            <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} productId={productId} changeColor={this.props.changeColor} />
             <CartForm sizes={sizes} />
           </div>
         </div>
