@@ -23,8 +23,12 @@ class ImageViewer extends React.Component {
 
   componentDidMount() {
     this.setState({
+      imageIndex: 0,
       numItems: this.props.images.length,
-      lastItem: this.props.images.length > 7 ? 7 : this.props.images.length - 1
+      firstItem: 0,
+      lastItem: this.props.images.length > 7 ? 7 : this.props.images.length - 1,
+      shiftCount: 0,
+      upArrowDisplay: "none"
     });
 
     if (this.props.images.length > 7) {
@@ -36,8 +40,12 @@ class ImageViewer extends React.Component {
 
   componentWillReceiveProps(props) {
     this.setState({
+      imageIndex: 0,
       numItems: props.images.length,
-      lastItem: props.images.length > 7 ? 7 : props.images.length - 1
+      firstItem: 0,
+      lastItem: props.images.length > 7 ? 7 : props.images.length - 1,
+      shiftCount: 0,
+      upArrowDisplay: "none"
     });
 
     if (props.images.length > 7) {
