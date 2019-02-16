@@ -4,7 +4,6 @@
     "name": "Edgebounce Shoes",
     "images": [
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_01_standard.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_video.mp4",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_010_hover_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_02_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_03_standard.jpg",
@@ -15,20 +14,6 @@
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_41_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_42_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Edgebounce_Shoes_White_AC8116_43_detail.jpg"
-    ],
-    "thumbnails": [
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_01_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_video.jpg.png",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_010_hover_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_02_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_03_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_04_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_05_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_06_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_07_standard-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_41_detail-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_42_detail-2.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/001/Thumbnails/Edgebounce_Shoes_White_AC8116_43_detail-2.jpg"
     ],
     "sizes" : {
       "5": 1,
@@ -61,14 +46,12 @@
     "name": "Edgebounce Shoes",
     "images": [
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_01_standard.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_video.mp4",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_010_hover_standard.jpg",
+      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_02_hover_frv.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_02_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_03_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_04_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_05_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_06_standard.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_07_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_41_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_42_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/002/Edgebounce_Shoes_Pink_AC7104_43_detail.jpg"
@@ -105,14 +88,12 @@
     "name": "Edgebounce Shoes",
     "images": [
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_01_standard.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_video.mp4",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_010_hover_standard.jpg",
+      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_02_hover_frv.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_02_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_03_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_04_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_05_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_06_standard.jpg",
-      "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_07_standard.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_41_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_42_detail.jpg",
       "https://s3-us-west-1.amazonaws.com/abibas-shoes/shoes/003/Edgebounce_Shoes_Black_BB7566_43_detail.jpg"

@@ -3,6 +3,7 @@ import axios from 'axios';
 import style from '../styles/hero.css';
 import OrderInfo from './OrderInfo';
 import ImageViewer from './ImageViewer';
+import SaleBadge from './SaleBadge';
 
 class Hero extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class Hero extends React.Component {
       .get('/abibas/product', { params: { id: 2 } })
       .then((response) => {
         this.setState({
-          productDetails: response.data.product, 
+          productDetails: response.data.product,
           availableColorImages: response.data.colorThumbnails
         });
       })
@@ -68,10 +69,18 @@ class Hero extends React.Component {
   }
 
   render() {
+    let salePrice = this.state.productDetails.salePrice;
+    let retailPrice = this.state.productDetails.retailPrice;
+    let sale = salePrice / retailPrice * 100;
     return (
-      <div className={style.container}>
-        <ImageViewer />
-        <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+      <div>
+        <div className={style.container}>
+          <ImageViewer images={this.state.productDetails.images} />
+          <SaleBadge sale={sale} />
+          <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} />
+        </div>
+        <div className={style.background}>
+        </div>
       </div>
     )
   }

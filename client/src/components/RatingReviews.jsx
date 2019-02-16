@@ -13,7 +13,6 @@ const RatingReviews = ({ count, rating }) => {
   while (stars.length < 5) {
     stars.push(0);
   }
-  console.log(stars);
   return (
     <div className={style.container}>
       <div className={style.starRating}>
