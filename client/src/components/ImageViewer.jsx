@@ -162,8 +162,9 @@ class ImageViewer extends React.Component {
                 <button className={style.carouselButton} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/arrow-up-icon.png')", display:this.state.upArrowDisplay}} onClick={this.shiftDown} />
               </div>
               {images.map((image, key) => {
+                let thumbnailStyle = key === this.state.imageIndex ? style.selectedThumbnail : style.thumbnail;
                 return (
-                  <div className={style.thumbnail} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
+                  <div className={thumbnailStyle} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
                     <img className={style.thumbnailImage} name={key} src={image} />
                   </div>
                 );

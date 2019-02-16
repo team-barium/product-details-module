@@ -9,7 +9,7 @@
 }
 
 .container {
-  margin-top: 40px;
+  padding-top: 40px;
   margin-bottom: 40px;
   margin-right: auto;
   display: flex;
@@ -105,6 +105,6 @@
 
 @media (min-width: 960px) {
   .container {
-    margin-top: 0;
+    padding-top: 0;
   }
 }
