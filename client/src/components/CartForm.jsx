@@ -71,9 +71,11 @@ class CartForm extends React.Component {
         </div>
         <div className={style.addToBagRow}>
           <button type="submit" className={style.addToBagButton} onClick={this.addToBag}>Add To Bag<div className={style.arrow}>&#x027F6;</div></button>
-          <button type="submit" className={style.wishlistButton} onClick={this.toggleHeart} onMouseOver={this.hoverHeart} onMouseOut={this.offHoverHeart}>
-            <div className={style.heartIcon} style={{backgroundImage:`url(${this.state.heartUrl})`}}></div>
-          </button>
+          <div className={style.wishlistButtonContainer}>
+            <button type="submit" className={style.wishlistButton} onClick={this.toggleHeart} onMouseOver={this.hoverHeart} onMouseOut={this.offHoverHeart}>
+              <div className={style.heartIcon} style={{backgroundImage:`url(${this.state.heartUrl})`}}></div>
+            </button>
+          </div>
         </div>
         <div className={style.shippingPromoRow}>
           <div className={style.shippingPromo}>

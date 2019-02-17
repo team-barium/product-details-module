@@ -177,7 +177,7 @@
   margin-left: 20px;
 }
 
-.wishlistButton {
+.wishlistButtonContainer {
   display: flex;
   position: relative;
   flex: none;
@@ -187,9 +187,28 @@
   width: 50px;
   padding: 0;
   margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.wishlistButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  padding: 0;
   border: 1px solid #000;
   line-height: 47px;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+.wishlistButton:active {
+  margin: 0.5px;
+  height: 48px;
+  width: 48px;
 }
 
 .heartIcon {
