@@ -1,6 +1,7 @@
 .container {
   display: block;
   padding: 0 15px;
+  padding-top: 40px;
   box-sizing: border-box;
   animation: d .25s forwards;
   width: 100%;
@@ -20,6 +21,7 @@
 @media (min-width: 960px) {
   .container {
     width: 33.33333%;
+    padding-top: 0;
     z-index: 0;
     background-color: transparent;
   }
