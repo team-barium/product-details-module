@@ -16,10 +16,10 @@ const RatingReviews = ({ count, rating }) => {
   return (
     <div className={style.container}>
       <div className={style.starRating}>
-        {stars.map((star) => {
+        {stars.map((star, key) => {
           let percentage = `${(star / 1 * 100)}%`;
           return (
-            <div className={style.outerStar}>
+            <div className={style.outerStar} key={key}>
               &#x02606;
               <div style={{width:percentage}} className={style.innerStar}>
                 &#x02605;

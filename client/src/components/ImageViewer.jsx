@@ -21,10 +21,31 @@ class ImageViewer extends React.Component {
     this.shiftMultiple = this.shiftMultiple.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      imageIndex: 0,
+      numItems: this.props.images.length,
+      firstItem: 0,
+      lastItem: this.props.images.length > 7 ? 7 : this.props.images.length - 1,
+      shiftCount: 0,
+      upArrowDisplay: "none"
+    });
+
+    if (this.props.images.length > 7) {
+      this.setState({
+        downArrowDisplay: "flex"
+      });
+    }
+  }
+
   componentWillReceiveProps(props) {
     this.setState({
+      imageIndex: 0,
       numItems: props.images.length,
-      lastItem: props.images.length > 7 ? 7 : props.images.length - 1
+      firstItem: 0,
+      lastItem: props.images.length > 7 ? 7 : props.images.length - 1,
+      shiftCount: 0,
+      upArrowDisplay: "none"
     });
 
     if (props.images.length > 7) {
@@ -141,8 +162,9 @@ class ImageViewer extends React.Component {
                 <button className={style.carouselButton} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/arrow-up-icon.png')", display:this.state.upArrowDisplay}} onClick={this.shiftDown} />
               </div>
               {images.map((image, key) => {
+                let thumbnailStyle = key === this.state.imageIndex ? style.selectedThumbnail : style.thumbnail;
                 return (
-                  <div className={style.thumbnail} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
+                  <div className={thumbnailStyle} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
                     <img className={style.thumbnailImage} name={key} src={image} />
                   </div>
                 );

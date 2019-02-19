@@ -19,6 +19,12 @@
   font-weight: 400;
 }
 
+.sizeChart:hover {
+  background-color: #fff;
+  color: #000;
+  filter: invert(100%);
+}
+
 .sizeIcon {
   background-size: cover;
   position: relative;
@@ -89,6 +95,10 @@
   box-sizing: border-box;
 }
 
+.dropdownButton:hover {
+  border-color: #000;
+}
+
 .dropdownIcon {
   background-size: cover;
   width: 24px;
@@ -137,7 +147,11 @@
   transform: translate(-3px,-3px);
 }
 
-.addToBagButton:after {
+.addToBagButton:hover {
+  color: gray;
+}
+
+.addToBagButton::after {
   content: "";
   display: block;
   position: absolute;
@@ -148,6 +162,14 @@
   box-shadow: inset 0 0 0 1px #000;
 }
 
+.addToBagButton:active {
+  transform: translate(0, 0);
+}
+
+.addToBagButton:active::after {
+  transform: translate(-3px, -3px);
+}
+
 .arrow {
   font-size: 22px;
   top: -2.5px;
@@ -155,7 +177,7 @@
   margin-left: 20px;
 }
 
-.wishlistButton {
+.wishlistButtonContainer {
   display: flex;
   position: relative;
   flex: none;
@@ -165,9 +187,28 @@
   width: 50px;
   padding: 0;
   margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.wishlistButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  padding: 0;
   border: 1px solid #000;
   line-height: 47px;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+.wishlistButton:active {
+  margin: 0.5px;
+  height: 48px;
+  width: 48px;
 }
 
 .heartIcon {
@@ -196,18 +237,24 @@
 .deliveryIcon {
   display: inline-block;
   background-size: cover;
-  width: 19px;
-  height: 19px;
-  box-sizing: border-box;
+  width: 25px;
+  margin-right: 6px;
+  height: 20px;
 }
 
 .shippingMessage {
   display: inline-block;
-  width: 90%;
+  width: auto;
   cursor: pointer;
-  padding-left: 7px;
+  padding-left: 1px;
   padding-right: 1px;
+  margin-right: auto;
   text-decoration: underline;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.shippingMessage:hover {
+  background-color: #000;
+  color: #fff;
 }

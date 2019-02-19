@@ -14,3 +14,6 @@
   height: 720px;
 }
 
+button:focus {
+  outline: 0;
+}
