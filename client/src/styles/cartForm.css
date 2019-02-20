@@ -108,7 +108,7 @@
 }
 
 .selectLabel {
-  overflow: hidden;
+  overflow: visible;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

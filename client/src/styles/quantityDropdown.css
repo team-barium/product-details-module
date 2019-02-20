@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'AdihausDIN-Bold';
+  src: url('./fonts/AdihausDIN-Bold.woff2') format('woff2');
+}
+
+.container {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  position: absolute;
+  z-index: 25;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 195px;
+  overflow: auto;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  transform: translateY(-1px);
+}
+
+.quantityList {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 22px;
+}
+
+.quantityEntry {
+  cursor: pointer;
+  display: list-item;
+}
+
+.quantityButton {
+  display: block;
+  align-items: flex-start;
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid #ebedee;
+  cursor: pointer;
+  font-family: AdihausDIN;
+}
+
+.quantityButton:hover {
+  background-color: #ebedee;
+}
