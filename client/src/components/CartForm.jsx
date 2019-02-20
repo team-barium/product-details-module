@@ -1,11 +1,14 @@
 import React from 'react';
 import style from '../styles/cartForm.css';
+import QuantityDropdown from './QuantityDropdown';
+import SizeDropdown from './SizeDropdown';
 
 class CartForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       size: 'Select Size',
+      sizeDropdownToggle: false,
       quantity: null,
       heartToggle: false,
       heartUrl: 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png'
@@ -14,6 +17,8 @@ class CartForm extends React.Component {
     this.offHoverHeart = this.offHoverHeart.bind(this);
     this.toggleHeart = this.toggleHeart.bind(this);
     this.addToBag = this.addToBag.bind(this);
+    this.toggleSizeDropdown = this.toggleSizeDropdown.bind(this);
+    this.changeSize = this.changeSize.bind(this);
   }
 
   hoverHeart() {
@@ -40,7 +45,22 @@ class CartForm extends React.Component {
     e.preventDefault(); //prevent page refresh on click
   }
 
+  toggleSizeDropdown() {
+    this.setState({
+      sizeDropdownToggle: !this.state.sizeDropdownToggle
+    });
+  }
+
+  changeSize(e) {
+    e.preventDefault();
+    this.setState({
+      size: e.target.getAttribute('size'),
+      sizeDropdownToggle: false
+    });
+  }
+
   render() {
+    let sizes = this.props.sizes;
     return (
       <form className={style.container}>
         <div className={style.sizeChartContainer}>
@@ -52,10 +72,11 @@ class CartForm extends React.Component {
         <div className={style.sizeQuantityRow}>
           <div className={style.sizeSelector}>
             <div className={style.dropdown}>
-              <button type="button" className={style.dropdownButton} title="select size">
+              <button type="button" className={style.dropdownButton} title="select size" onClick={this.toggleSizeDropdown}>
                 <span className={style.selectLabel}>{this.state.size}</span>
                 <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')"}}></div>
               </button>
+              <SizeDropdown sizes={sizes} changeSize={this.changeSize} toggle={this.state.sizeDropdownToggle}/>
             </div>
           </div>
           <div className={style.quantitySelector}>
@@ -65,6 +86,7 @@ class CartForm extends React.Component {
                   <span className={style.selectLabel}>{this.state.quantity}</span>
                   <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')"}}></div>
                 </button>
+                <QuantityDropdown />
               </div>
             </div>
           </div>
