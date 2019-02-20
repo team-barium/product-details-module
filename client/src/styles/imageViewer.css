@@ -34,6 +34,11 @@
   position: absolute;
   z-index: 25;
   cursor: pointer;
+	transition: all .2s cubic-bezier(.3,0,.45,1);
+}
+
+.leftArrow:hover {
+  transform: translate(-10px, 0);
 }
 
 .rightArrow {
@@ -45,6 +50,11 @@
   position: absolute;
   z-index: 25;
   cursor: pointer;
+	transition: all .2s cubic-bezier(.3,0,.45,1);
+}
+
+.rightArrow:hover {
+	transform: translate(10px, 0);
 }
 
 .arrow {
