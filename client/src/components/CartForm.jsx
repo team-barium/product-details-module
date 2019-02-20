@@ -78,7 +78,7 @@ class CartForm extends React.Component {
   }
 
   render() {
-    let sizes = this.props.sizes;
+    let { sizes } = this.props;
     return (
       <form className={style.container}>
         <div className={style.sizeChartContainer}>

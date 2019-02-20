@@ -6,18 +6,10 @@ import Price from './Price';
 class ProductInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
   }
 
   render() {
-    let name = this.props.name;
-    let tags = this.props.tags;
-    let retailPrice = this.props.retailPrice;
-    let salePrice = this.props.salePrice;
-    let reviewCount = this.props.reviewCount;
-    let reviewRating = this.props.reviewRating;
+    let { name, tags, retailPrice, salePrice, reviewCount, reviewRating } = this.props;
 
     return (
       <div className={style.container}>
