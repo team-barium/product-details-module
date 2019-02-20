@@ -61,10 +61,8 @@ class Hero extends React.Component {
 
   render() {
     if (this.state.loadedData) {
-      let salePrice = this.state.productDetails.salePrice;
-      let retailPrice = this.state.productDetails.retailPrice;
+      let { salePrice, retailPrice, images } = this.state.productDetails;
       let sale = salePrice / retailPrice * 100;
-      let images = this.state.productDetails.images;
       return (
         <div className={style.background}>
           <div className={style.container}>

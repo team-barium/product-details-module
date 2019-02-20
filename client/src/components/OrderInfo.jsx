@@ -13,17 +13,8 @@ class OrderInfo extends React.Component {
   }
 
   render() {
-    let name = this.props.details.name;
-    let tags = this.props.details.tags;
-    let retailPrice = this.props.details.retailPrice;
-    let salePrice = this.props.details.salePrice;
-    let reviewCount = this.props.details.reviewCount;
-    let reviewRating = this.props.details.reviewRating;
-    let colors = this.props.details.colors;
-    let availableColors = this.props.details.availableColors;
-    let availableColorImages = this.props.availableColorImages;
-    let sizes = this.props.details.sizes;
-    let productId = this.props.details.productId;
+    let { name, tags, retailPrice, salePrice, reviewCount, reviewRating, colors, availableColors, sizes, productId } = this.props.details;
+    let { availableColorImages } = this.props;
     return (
       <div className={style.container}>
         <div className={style.background}>

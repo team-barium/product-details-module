@@ -140,7 +140,7 @@ class ImageViewer extends React.Component {
   }
 
   render() {
-    let images = this.props.images;
+    let { images } = this.props;
 
     return (
       <div className={style.container}>
