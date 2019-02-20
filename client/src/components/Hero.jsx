@@ -4,6 +4,7 @@ import style from '../styles/hero.css';
 import OrderInfo from './OrderInfo';
 import ImageViewer from './ImageViewer';
 import SaleBadge from './SaleBadge';
+import ProductInfoMobile from './ProductInfoMobile';
 
 class Hero extends React.Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class Hero extends React.Component {
       let sale = 100 - salePrice / retailPrice * 100;
       return (
         <div className={style.background}>
+          <ProductInfoMobile details={this.state.productDetails} />
           <div className={style.container}>
             <ImageViewer images={images} />
             <SaleBadge sale={sale} />

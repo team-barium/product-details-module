@@ -1,0 +1,45 @@
+.container {
+  display: block;
+  position: relative;
+  z-index: 20;
+  background-color: #fff;
+  margin: 0;
+  padding: 17px 15px 16px 15px;
+  float: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.productCategory {
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  color: #767677;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+.productName {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 26px;
+  line-height: 24px;
+  font-family: AdineuePRO-Bold;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.reviewPriceContainer {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row-reversal;
+  justify-content: space-between;
+  margin-bottom: -6px;
+}
+
+@media (min-width: 960px) {
+  .container {
+    display: none;
+  }
+}
