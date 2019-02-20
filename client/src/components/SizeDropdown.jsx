@@ -33,6 +33,7 @@ class SizeDropdown extends React.Component {
                   );
                 }})}
             </ul>
+            <a className={style.menuText}>Size out of stock?</a>
           </div>
         </div>
       );

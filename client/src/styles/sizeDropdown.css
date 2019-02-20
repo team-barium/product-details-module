@@ -55,3 +55,16 @@
   border-bottom-color: #000;
 }
 
+.menuText {
+  display: inline;
+  vertical-align: bottom;
+  padding: 0 1px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.menuText:hover {
+  color: #fff;
+  background-color: #000;
+}
+
