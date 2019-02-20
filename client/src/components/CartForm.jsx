@@ -109,7 +109,7 @@ class CartForm extends React.Component {
                 <div className={style.dropdownButton} title="select quantity" onClick={this.toggleQuantityDropdown}>
                   <span className={style.selectLabel}>{this.state.quantity}</span>
                   <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')"}}></div>
-                  <QuantityDropdown changeQuantity={this.changeQuantity} toggle={this.state.quantityDropdownToggle} />
+                  <QuantityDropdown changeQuantity={this.changeQuantity} toggle={this.state.quantityDropdownToggle} current={Number(this.state.quantity)} />
                 </div>
               </div>
             </div>

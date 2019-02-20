@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'AdihausDIN-Bold';
+  src: url('./fonts/AdihausDIN-Bold.woff2') format('woff2');
+}
+
 .container {
   display: block;
   cursor: pointer;
@@ -33,7 +38,6 @@
   align-items: flex-start;
   text-align: left;
   padding: 10px 15px;
-  font-style: normal;
   font-size: 16px;
   font-weight: 400;
   width: 100%;
@@ -41,6 +45,7 @@
   border: 0;
   border-bottom: 1px solid #ebedee;
   cursor: pointer;
+  font-family: AdihausDIN;
 }
 
 .quantityButton:hover {
