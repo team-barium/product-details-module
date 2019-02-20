@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'AdihausDIN-Bold';
+  src: url('./fonts/AdihausDIN-Bold.woff2') format('woff2');
+}
+
+.container {
+  font-family: 'AdihausDIN-Bold';
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  font-size: 13px;
+  display: inline-block;
+  line-height: 1.1em;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transform: translate(-100%) rotate(270deg);
+  transform-origin: right top;
+  background-color: #fff;
+}
+
+@media (min-width: 960px) {
+  .container {
+    left: 15;
+    transform: none;
+    padding: 7px;
+    margin: 30px 30px 30px 0;
+  }
+}
