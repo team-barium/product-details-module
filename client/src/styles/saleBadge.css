@@ -4,6 +4,10 @@
 }
 
 .container {
+  width: 720px;
+}
+
+.badge {
   font-family: 'AdihausDIN-Bold';
   font-size: 13px;
   font-weight: 700;
@@ -29,6 +33,10 @@
 
 @media (min-width: 960px) {
   .container {
+    position: absolute;
+  }
+  .badge {
+    position: absolute;
     left: 15px;
     top: 0;
     transform: none;

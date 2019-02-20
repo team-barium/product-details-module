@@ -4,7 +4,9 @@ import style from '../styles/saleBadge.css';
 const SaleBadge = ({ sale }) => {
   return (
     <div className={style.container}>
-      -{sale} %
+      <div className={style.badge}>
+        -{sale} %
+      </div>
     </div>
   );
 }
