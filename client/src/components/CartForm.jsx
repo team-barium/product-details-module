@@ -9,7 +9,7 @@ class CartForm extends React.Component {
     this.state = {
       size: 'Select Size',
       sizeDropdownToggle: false,
-      quantity: null,
+      quantity: 1,
       quantityDropdownToggle: false,
       heartToggle: false,
       heartUrl: 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png'
@@ -28,7 +28,8 @@ class CartForm extends React.Component {
   componentWillReceiveProps() {
     this.setState({
       heartToggle: this.props.heartToggle,
-      heartUrl: !this.props.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled.png'
+      heartUrl: !this.props.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled.png',
+      quantity: 1
     });
   }
 
