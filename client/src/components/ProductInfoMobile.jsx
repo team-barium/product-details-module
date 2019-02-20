@@ -15,7 +15,7 @@ const ProductInfoMobile = ({ details }) => {
         {name}
       </div>
       <div className={style.reviewPriceContainer}>
-        <RatingReviews count={reviewCount} rating={reviewRating} />
+        <RatingReviews mobile={true} count={reviewCount} rating={reviewRating} />
         <Price retail={retailPrice} sale={salePrice} />
       </div>
     </div>

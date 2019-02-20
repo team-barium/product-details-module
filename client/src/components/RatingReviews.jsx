@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../styles/ratingReviews.css';
 
-const RatingReviews = ({ count, rating }) => {
+const RatingReviews = ({ count, rating, mobile }) => {
   let stars = [];
   while (rating > 1) {
     stars.push(1);
@@ -28,7 +28,7 @@ const RatingReviews = ({ count, rating }) => {
           );
         })}
       </div>
-      <a className={style.count}>Read all {count} reviews</a>
+      <a className={style.count}>{mobile ? count : `Read all ${count} reviews`}</a>
     </div>
   );
 };
