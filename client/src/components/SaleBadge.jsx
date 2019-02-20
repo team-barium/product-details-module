@@ -1,9 +1,10 @@
 import React from 'react';
 import style from '../styles/saleBadge.css';
 
-const SaleBadge = (props) => {
+const SaleBadge = ({ sale }) => {
   return (
     <div className={style.container}>
+      -{sale} %
     </div>
   );
 }
