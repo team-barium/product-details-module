@@ -18,7 +18,7 @@ const SizeDropdown = ({ sizes, changeSize, toggle }) => {
                 </li>
                 );
               }})}
-        </ul>
+          </ul>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ class CartForm extends React.Component {
       size: 'Select Size',
       sizeDropdownToggle: false,
       quantity: null,
+      quantityDropdownToggle: false,
       heartToggle: false,
       heartUrl: 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png'
     };
@@ -18,7 +19,10 @@ class CartForm extends React.Component {
     this.toggleHeart = this.toggleHeart.bind(this);
     this.addToBag = this.addToBag.bind(this);
     this.toggleSizeDropdown = this.toggleSizeDropdown.bind(this);
+    this.toggleOffSizeDropdown = this.toggleOffSizeDropdown.bind(this);
+    this.toggleQuantityDropdown = this.toggleQuantityDropdown.bind(this);
     this.changeSize = this.changeSize.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
 
   hoverHeart() {
@@ -51,6 +55,26 @@ class CartForm extends React.Component {
     });
   }
 
+  toggleOffSizeDropdown() {
+    this.setState({
+      sizeDropdownToggle: false
+    });
+  }
+
+  toggleQuantityDropdown() {
+    this.setState({
+      quantityDropdownToggle: !this.state.quantityDropdownToggle
+    });
+  }
+
+  changeQuantity(e) {
+    e.preventDefault();
+    this.setState({
+      quantity: e.target.getAttribute('quantity'),
+      quantityDropdownToggle: false
+    });
+  }
+
   changeSize(e) {
     e.preventDefault();
     this.setState({
@@ -72,21 +96,21 @@ class CartForm extends React.Component {
         <div className={style.sizeQuantityRow}>
           <div className={style.sizeSelector}>
             <div className={style.dropdown}>
-              <button type="button" className={style.dropdownButton} title="select size" onClick={this.toggleSizeDropdown}>
+              <div className={style.dropdownButton} title="select size" onClick={this.toggleSizeDropdown}>
                 <span className={style.selectLabel}>{this.state.size}</span>
-                <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')"}}></div>
-              </button>
-              <SizeDropdown sizes={sizes} changeSize={this.changeSize} toggle={this.state.sizeDropdownToggle}/>
+                <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')", transform:`${this.state.sizeDropdownToggle ? "rotate(180deg)" : "none"}`}} ></div>
+              </div>
+              <SizeDropdown sizes={sizes} changeSize={this.changeSize} toggle={this.state.sizeDropdownToggle} toggleOff={this.state.toggleOffSizeDropdown} />
             </div>
           </div>
           <div className={style.quantitySelector}>
             <div className={style.dropdown}>
               <div className={style.selector}>
-                <button type="button" className={style.dropdownButton} title="select quantity">
+                <div className={style.dropdownButton} title="select quantity" onClick={this.toggleQuantityDropdown}>
                   <span className={style.selectLabel}>{this.state.quantity}</span>
                   <div className={style.dropdownIcon} style={{backgroundImage:"url('https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/dropdown-icon.png')"}}></div>
-                </button>
-                <QuantityDropdown />
+                  <QuantityDropdown changeQuantity={this.changeQuantity} toggle={this.state.quantityDropdownToggle} />
+                </div>
               </div>
             </div>
           </div>
