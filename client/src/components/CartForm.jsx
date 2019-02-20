@@ -25,6 +25,13 @@ class CartForm extends React.Component {
     this.changeQuantity = this.changeQuantity.bind(this);
   }
 
+  componentWillReceiveProps() {
+    this.setState({
+      heartToggle: this.props.heartToggle,
+      heartUrl: !this.props.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled.png'
+    });
+  }
+
   hoverHeart() {
     this.setState({
       heartUrl: this.state.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled-hover.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-hover.png'

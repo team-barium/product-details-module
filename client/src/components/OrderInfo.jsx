@@ -13,7 +13,7 @@ class OrderInfo extends React.Component {
   }
 
   render() {
-    let { name, tags, retailPrice, salePrice, reviewCount, reviewRating, colors, availableColors, sizes, productId } = this.props.details;
+    let { name, tags, retailPrice, salePrice, reviewCount, reviewRating, colors, availableColors, sizes, productId, heartToggle } = this.props.details;
     let { availableColorImages } = this.props;
     return (
       <div className={style.container}>
@@ -21,7 +21,7 @@ class OrderInfo extends React.Component {
           <div className={style.infoBar}>
             <ProductInfo name={name} tags={tags} reviewCount={reviewCount} reviewRating={reviewRating} retailPrice={retailPrice} salePrice={salePrice} />
             <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} productId={productId} changeColor={this.props.changeColor} />
-            <CartForm sizes={sizes} />
+            <CartForm sizes={sizes} heartToggle={heartToggle} />
           </div>
         </div>
       </div>
