@@ -8,14 +8,14 @@ class SizeDropdown extends React.Component {
   }
 
   handleOutsideClick(e) {
-    if (!this.node.contains(e.target)) {
-      this.props.toggleOff();
+    if (!this.props.node.contains(e.target)) {
+      this.props.toggle();
     }
   }
   
   render() {
-    let { sizes, changeSize, toggle } = this.props;
-    if (toggle) {
+    let { sizes, changeSize, toggleState } = this.props;
+    if (toggleState) {
     document.addEventListener('mousedown', this.handleOutsideClick);
       return (
         <div ref={node => this.node = node} className={style.container}>

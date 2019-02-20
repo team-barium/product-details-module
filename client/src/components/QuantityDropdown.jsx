@@ -8,14 +8,14 @@ class QuantityDropdown extends React.Component {
   }
 
   handleOutsideClick(e) {
-    if (!this.node.contains(e.target)) {
-      this.props.toggleOff();
+    if (!this.props.node.contains(e.target)) {
+      this.props.toggle();
     }
   }
 
   render() {
-    let { changeQuantity, toggle, current } = this.props;
-    if (toggle) {
+    let { changeQuantity, toggleState, current } = this.props;
+    if (toggleState) {
       document.addEventListener('mousedown', this.handleOutsideClick);
       return (
         <div ref={node => this.node = node} className={style.container}>
