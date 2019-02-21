@@ -203,6 +203,7 @@
   line-height: 47px;
   cursor: pointer;
   white-space: nowrap;
+  background-color: #fff;
 }
 
 .wishlistButton:active {

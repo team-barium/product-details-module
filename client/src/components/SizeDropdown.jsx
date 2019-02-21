@@ -15,13 +15,18 @@ class SizeDropdown extends React.Component {
   
   render() {
     let { sizes, changeSize, toggleState } = this.props;
+    let sizeList = Object.keys(sizes).sort((a, b) => {
+      let A = a.endsWith('h') ? a.replace('h', '.5') : a;
+      let B = b.endsWith('h') ? b.replace('h', '.5') : b;
+      return A - B;
+    });
     if (toggleState) {
     document.addEventListener('mousedown', this.handleOutsideClick);
       return (
         <div ref={node => this.node = node} className={style.container}>
           <div className={style.sizeContainer}>
             <ul className={style.sizeList}>
-              {Object.keys(sizes).map((size) => {
+              {sizeList.map((size) => {
                 if (sizes[size] > 0) {
                   let sizeText = size.endsWith('h') ? size.replace('h', '.5') : size;
                   return (
