@@ -26,7 +26,7 @@ class ImageViewer extends React.Component {
       imageIndex: 0,
       numItems: this.props.images.length,
       firstItem: 0,
-      lastItem: this.props.images.length > 7 ? 7 : this.props.images.length - 1,
+      lastItem: this.props.images.length > 6 ? 6 : this.props.images.length - 1,
       shiftCount: 0,
       upArrowDisplay: "none"
     });
@@ -43,12 +43,12 @@ class ImageViewer extends React.Component {
       imageIndex: 0,
       numItems: props.images.length,
       firstItem: 0,
-      lastItem: props.images.length > 7 ? 7 : props.images.length - 1,
+      lastItem: props.images.length > 6 ? 6 : props.images.length - 1,
       shiftCount: 0,
       upArrowDisplay: "none"
     });
 
-    if (props.images.length > 7) {
+    if (props.images.length > 6) {
       this.setState({
         downArrowDisplay: "flex"
       });
@@ -108,7 +108,7 @@ class ImageViewer extends React.Component {
     }
     this.setState({
       upArrowDisplay: this.state.firstItem === 1 ? "none" : "flex",
-      downArrowDisplay: this.state.numItems > 8 ? "flex" : "none",
+      downArrowDisplay: this.state.numItems > 7 ? "flex" : "none",
       firstItem: this.state.firstItem - 1,
       lastItem: this.state.lastItem - 1,
       shiftCount: this.state.shiftCount + 1
