@@ -29,6 +29,7 @@ class CartForm extends React.Component {
     this.setState({
       heartToggle: this.props.heartToggle,
       heartUrl: !this.props.heartToggle ? 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-normal.png' : 'https://s3-us-west-1.amazonaws.com/abibas-shoes/icons/heart-icon-filled.png',
+      size: 'Select Size',
       quantity: 1
     });
   }

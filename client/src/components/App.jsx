@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../styles/app.css';
 import Hero from './Hero';
 
-const App = ({ productId }) => {
+const ProductDetailsApp = ({ productId }) => {
   return (
     <div className={style.container}>
       <Hero productId={productId}/>
@@ -10,4 +10,4 @@ const App = ({ productId }) => {
   );
 };
 
-export default App;
+export default ProductDetailsApp;
