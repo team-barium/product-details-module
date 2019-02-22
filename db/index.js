@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/abibas');
+mongoose.connect('mongodb://localhost/abibas', { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
 db.on('error', (err) => console.log('Failed to connect to database', err));
