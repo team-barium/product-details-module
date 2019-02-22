@@ -71,6 +71,7 @@ class Hero extends React.Component {
             <ImageViewer images={images} />
             <SaleBadge sale={sale} />
             <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} changeColor={this.changeColor} />
+            <div className={style.bar} />
           </div>
           <div className={style.background}>
           </div>

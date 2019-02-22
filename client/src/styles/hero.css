@@ -15,5 +15,16 @@
     display: flex;
     background-color: #ebedee;
     max-width: 1280px;
+  .bar {
+    display: block;
+    background-color: #fff;
+    position: relative;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    margin-top: 540px;
+    margin-bottom: 40px;
+  }
   }
 }
