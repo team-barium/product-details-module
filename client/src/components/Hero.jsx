@@ -42,7 +42,7 @@ class Hero extends React.Component {
 
   fetchProduct(productId) {
     axios
-      .get('/abibas/product', { params: { id: productId } })
+      .get('http://localhost:3002/abibas/product', { params: { id: productId } })
       .then((response) => {
         this.setState({
           productDetails: response.data.product,

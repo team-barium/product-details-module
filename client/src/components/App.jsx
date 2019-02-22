@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/app.css';
+import style from '../styles/productDetailsApp.css';
 import Hero from './Hero';
 
 const ProductDetailsApp = ({ productId }) => {
