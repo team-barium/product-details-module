@@ -42,6 +42,21 @@ class Hero extends React.Component {
 
   fetchProduct(productId) {
     axios
+      .get('/abibas/product', { params: { id: productId } })
+      .then((response) => {
+        this.setState({
+          productDetails: response.data.product,
+          availableColorImages: response.data.colorThumbnails,
+          loadedData: true
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  fetchProductColor(productId) {
+    axios
       .get('http://localhost:3002/abibas/product', { params: { id: productId } })
       .then((response) => {
         this.setState({
@@ -57,7 +72,7 @@ class Hero extends React.Component {
 
   changeColor(e) {
     e.preventDefault();
-    this.fetchProduct(Number(e.target.getAttribute('id')));
+    this.fetchProductColor(Number(e.target.getAttribute('id')));
   }
 
   render() {
