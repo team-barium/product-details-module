@@ -28,7 +28,7 @@ const RatingReviews = ({ count, rating, mobile }) => {
           );
         })}
       </div>
-      <a className={style.count}>{mobile ? count : `Read all ${count} reviews`}</a>
+      <a onClick={() => { document.getElementById('reviews').scrollIntoView({behavior: "smooth"}); window.scrollBy(0, -120); }} className={style.count}>{mobile ? count : `Read all ${count} reviews`}</a>
     </div>
   );
 };
