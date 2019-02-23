@@ -57,7 +57,7 @@ class Hero extends React.Component {
 
   fetchProductColor(productId) {
     axios
-      .get('http://54.85.179.37:3002/abibas/product', { params: { id: productId } })
+      .get('/abibas/color', { params: { id: productId } })
       .then((response) => {
         this.setState({
           productDetails: response.data.product,
