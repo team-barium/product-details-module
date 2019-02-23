@@ -161,8 +161,8 @@
     width: 100%;
   }
   .image {
-    max-width: 540px;
-    max-height: 540px;
+    max-width: 620px;
+    max-height: 620px;
   }
   .carousel {
     overflow-y: visible;
