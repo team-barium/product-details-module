@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/QuantityDropdown.css';
+import style from '../styles/quantityDropdown.css';
 
 class QuantityDropdown extends React.Component {
   constructor(props) {
