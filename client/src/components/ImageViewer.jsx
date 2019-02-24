@@ -146,12 +146,12 @@ class ImageViewer extends React.Component {
     const zoomModalStyle = {
       backgroundColor: '#ebedee',
       width: '100%',
-      float: 'center',
-      left: '25%',
-      top: '50%',
-      transform: 'translate(-50%, -50%)',
+      left: '0',
+      top: '10%',
       boxSizing: 'border-box',
-      maxHeight: '90vh'
+      maxHeight: '80vh',
+      margin: '0',
+      padding: '0',
     }
     const closeButtonStyle = {
       display: 'flex',
@@ -169,14 +169,15 @@ class ImageViewer extends React.Component {
       paddingBottom: '6px',
       boxSizing: 'border-box',
       fontFamily: 'system-ui',
-      innerText: '&times;',
+      innerText: '&times',
       alignText: 'center',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      zIndex: '200'
     }
 
     return (
       <div className={style.container}>
-        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} hideOnOverlayClicked >
+        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked >
           <ZoomModal images={images} imageIndex={this.state.imageIndex} />
         </SkyLight>
         <div className={style.imageViewer}>
