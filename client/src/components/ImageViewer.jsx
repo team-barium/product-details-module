@@ -8,6 +8,7 @@ class ImageViewer extends React.Component {
     super(props);
     this.state = {
       imageIndex: 0,
+      zoomIndex: 0,
       numItems: 0,
       firstItem: 0, //first item visible in the thumbnail carousel
       lastItem: 0, //last item visible in the thumbnail carousel
@@ -22,11 +23,15 @@ class ImageViewer extends React.Component {
     this.shiftUp = this.shiftUp.bind(this);
     this.shiftDown = this.shiftDown.bind(this);
     this.shiftMultiple = this.shiftMultiple.bind(this);
+    this.nextZoomIndex = this.nextZoomIndex.bind(this);
+    this.previousZoomIndex = this.previousZoomIndex.bind(this);
+    this.setZoomIndex = this.setZoomIndex.bind(this);
   }
 
   componentDidMount() {
     this.setState({
       imageIndex: 0,
+      zoomIndex: 0,
       numItems: this.props.images.length,
       firstItem: 0,
       lastItem: this.props.images.length > 6 ? 6 : this.props.images.length - 1,
@@ -44,6 +49,7 @@ class ImageViewer extends React.Component {
   componentWillReceiveProps(props) {
     this.setState({
       imageIndex: 0,
+      zoomIndex: 0,
       numItems: props.images.length,
       firstItem: 0,
       lastItem: props.images.length > 6 ? 6 : props.images.length - 1,
@@ -62,14 +68,16 @@ class ImageViewer extends React.Component {
     let images = this.props.images;
     if (this.state.imageIndex > 0) {
       this.setState({
-        imageIndex: this.state.imageIndex - 1
+        imageIndex: this.state.imageIndex - 1,
+        zoomIndex: this.state.imageIndex -1
       });
       if (this.state.imageIndex - 1 < this.state.firstItem) {
         this.shiftMultiple(this.state.imageIndex - 1 - this.state.firstItem);
       }
     } else {
       this.setState({
-        imageIndex: images.length - 1
+        imageIndex: images.length - 1,
+        zoomIndex: images.length - 1
       });
       if (images.length - 1 > this.state.lastItem) {
         this.shiftMultiple(images.length - 1 - this.state.lastItem);
@@ -81,14 +89,16 @@ class ImageViewer extends React.Component {
     let images = this.props.images;
     if (this.state.imageIndex < images.length - 1) {
       this.setState({
-        imageIndex: this.state.imageIndex + 1
+        imageIndex: this.state.imageIndex + 1,
+        zoomIndex: this.state.imageIndex + 1
       });
       if (this.state.imageIndex + 1 > this.state.lastItem) {
         this.shiftMultiple(this.state.imageIndex + 1 - this.state.lastItem);
       }
     } else {
       this.setState({
-        imageIndex: 0
+        imageIndex: 0,
+        zoomIndex: 0
       });
       if (this.state.firstItem > 0) {
         this.shiftMultiple(0 - this.state.firstItem)
@@ -100,8 +110,10 @@ class ImageViewer extends React.Component {
     if (e) {
       e.preventDefault();
     }
+    let newIndex = Number(e.target.getAttribute('id'));
     this.setState({
-      imageIndex: Number(e.target.getAttribute('id'))
+      imageIndex: newIndex,
+      zoomIndex: newIndex
     });
   }
   
@@ -138,6 +150,29 @@ class ImageViewer extends React.Component {
       firstItem: this.state.firstItem + n,
       lastItem: this.state.lastItem + n,
       shiftCount: this.state.shiftCount - n
+    });
+  }
+
+  nextZoomIndex() {
+    let last = this.state.numItems - 1;
+    if (this.state.zoomIndex < last) {
+      this.setState({
+        zoomIndex: this.state.zoomIndex + 1
+      });
+    }
+  }
+
+  previousZoomIndex() {
+    if (this.state.zoomIndex > 0) {
+      this.setState({
+        zoomIndex: this.state.zoomIndex - 1
+      });
+    }
+  }
+
+  setZoomIndex(e) {
+    this.setState({
+      zoomIndex: e.target.getAttribute('index')
     });
   }
 
@@ -178,7 +213,7 @@ class ImageViewer extends React.Component {
     return (
       <div className={style.container}>
         <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked >
-          <ZoomModal images={images} imageIndex={this.state.imageIndex} />
+          <ZoomModal images={images} index={this.state.zoomIndex} previous={this.previousZoomIndex} next={this.nextZoomIndex} setIndex={this.setZoomIndex} />
         </SkyLight>
         <div className={style.imageViewer}>
           <div className={style.imageContainer}>
