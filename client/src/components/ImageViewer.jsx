@@ -1,6 +1,7 @@
 import React from 'react';
 import style from '../styles/imageViewer.css';
-import ZoomPopup from './ZoomPopup';
+import SkyLight from 'react-skylight';
+import ZoomModal from './ZoomModal';
 
 class ImageViewer extends React.Component {
   constructor(props) {
@@ -21,8 +22,6 @@ class ImageViewer extends React.Component {
     this.shiftUp = this.shiftUp.bind(this);
     this.shiftDown = this.shiftDown.bind(this);
     this.shiftMultiple = this.shiftMultiple.bind(this);
-    this.openPopup = this.openPopup.bind(this);
-    this.closePopup = this.closePopup.bind(this);
   }
 
   componentDidMount() {
@@ -142,27 +141,47 @@ class ImageViewer extends React.Component {
     });
   }
 
-  openPopup() {
-    this.setState({
-      popup: true
-    });
-  }
-
-  closePopup() {
-    this.setState({
-      popup: false
-    });
-  }
-
   render() {
     let { images } = this.props;
+    const zoomModalStyle = {
+      backgroundColor: '#ebedee',
+      width: '100%',
+      float: 'center',
+      left: '25%',
+      top: '50%',
+      transform: 'translate(-50%, -50%)',
+      boxSizing: 'border-box',
+      maxHeight: '90vh'
+    }
+    const closeButtonStyle = {
+      display: 'flex',
+      cursor: 'pointer',
+      position: 'absolute',
+      fontSize: '45px',
+      fontWeight: '100',
+      right: '10px',
+      top: '-14px',
+      width: '34px',
+      height: '34px',
+      alignItems: 'center',
+      justifyContent: 'center',
+      border: '1px solid #000',
+      paddingBottom: '6px',
+      boxSizing: 'border-box',
+      fontFamily: 'system-ui',
+      innerText: '&times;',
+      alignText: 'center',
+      backgroundColor: '#fff'
+    }
 
     return (
       <div className={style.container}>
-        <ZoomPopup images={images} index={this.state.imageIndex} popup={this.state.popup} closePopup={this.closePopup} />
+        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} hideOnOverlayClicked >
+          <ZoomModal images={images} imageIndex={this.state.imageIndex} />
+        </SkyLight>
         <div className={style.imageViewer}>
           <div className={style.imageContainer}>
-            <img className={style.image} src={images[this.state.imageIndex]} onClick={this.openPopup} />
+            <img className={style.image} src={images[this.state.imageIndex]} onClick={() => this.popup.show()} />
             <div className={style.leftArrow} onClick={this.previousImage}>
               <div className={style.arrowShadow}>&#x027F5;</div>
               <div className={style.arrow}>&#x027F5;</div>

@@ -6,6 +6,12 @@
   margin-right: auto;
 }
 
+.popup {
+  width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .imageViewer {
   display: block;
   position: relative;

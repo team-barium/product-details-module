@@ -1,9 +1,11 @@
+.modal {
+}
+
 .container {
   width: 100vw;
   margin-right: 0;
   margin-left: 0;
+  background-color: #fff;
 }
 
-.popup-content {
-  width: 100%;
-}
+
