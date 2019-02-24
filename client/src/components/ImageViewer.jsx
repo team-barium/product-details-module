@@ -101,7 +101,7 @@ class ImageViewer extends React.Component {
       e.preventDefault();
     }
     this.setState({
-      imageIndex: Number(e.target.name)
+      imageIndex: Number(e.target.getAttribute('id'))
     });
   }
   
@@ -200,8 +200,8 @@ class ImageViewer extends React.Component {
               {images.map((image, key) => {
                 let thumbnailStyle = key === this.state.imageIndex ? style.selectedThumbnail : style.thumbnail;
                 return (
-                  <div className={thumbnailStyle} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
-                    <img className={style.thumbnailImage} name={key} src={image} />
+                  <div className={thumbnailStyle} id={key} key={key} style={{transform:`translate(0, ${this.state.shiftCount * 64}px)`}} onClick={this.setImage}>
+                    <img className={style.thumbnailImage} id={key} src={image} />
                   </div>
                 );
               })}

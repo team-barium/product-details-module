@@ -6,14 +6,14 @@ class ZoomModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0
+      index: 0,
     }
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.setIndex = this.setIndex.bind(this);
   }
 
-  componentDidMount(props) {
+  componentWillReceieveProps(props) {
     this.setState({
       index: this.props.imageIndex
     });
