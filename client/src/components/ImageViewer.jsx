@@ -1,5 +1,6 @@
 import React from 'react';
 import style from '../styles/imageViewer.css';
+import ZoomPopup from './ZoomPopup';
 
 class ImageViewer extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class ImageViewer extends React.Component {
       lastItem: 0, //last item visible in the thumbnail carousel
       shiftCount: 0,
       upArrowDisplay: "none",
-      downArrowDisplay: "none"
+      downArrowDisplay: "none",
+      popup: false
     }
     this.nextImage = this.nextImage.bind(this);
     this.previousImage = this.previousImage.bind(this);
@@ -19,6 +21,8 @@ class ImageViewer extends React.Component {
     this.shiftUp = this.shiftUp.bind(this);
     this.shiftDown = this.shiftDown.bind(this);
     this.shiftMultiple = this.shiftMultiple.bind(this);
+    this.openPopup = this.openPopup.bind(this);
+    this.closePopup = this.closePopup.bind(this);
   }
 
   componentDidMount() {
@@ -136,7 +140,18 @@ class ImageViewer extends React.Component {
       lastItem: this.state.lastItem + n,
       shiftCount: this.state.shiftCount - n
     });
+  }
 
+  openPopup() {
+    this.setState({
+      popup: true
+    });
+  }
+
+  closePopup() {
+    this.setState({
+      popup: false
+    });
   }
 
   render() {
@@ -144,9 +159,10 @@ class ImageViewer extends React.Component {
 
     return (
       <div className={style.container}>
+        <ZoomPopup images={images} index={this.state.imageIndex} popup={this.state.popup} closePopup={this.closePopup} />
         <div className={style.imageViewer}>
           <div className={style.imageContainer}>
-            <img className={style.image} src={images[this.state.imageIndex]} />
+            <img className={style.image} src={images[this.state.imageIndex]} onClick={this.openPopup} />
             <div className={style.leftArrow} onClick={this.previousImage}>
               <div className={style.arrowShadow}>&#x027F5;</div>
               <div className={style.arrow}>&#x027F5;</div>
