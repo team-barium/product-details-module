@@ -26,6 +26,7 @@ class ImageViewer extends React.Component {
     this.nextZoomIndex = this.nextZoomIndex.bind(this);
     this.previousZoomIndex = this.previousZoomIndex.bind(this);
     this.setZoomIndex = this.setZoomIndex.bind(this);
+    this.resetZoomIndex = this.resetZoomIndex.bind(this);
   }
 
   componentDidMount() {
@@ -176,6 +177,12 @@ class ImageViewer extends React.Component {
     });
   }
 
+  resetZoomIndex() {
+    this.setState({
+      zoomIndex: this.state.imageIndex
+    });
+  }
+
   render() {
     let { images } = this.props;
     const zoomModalStyle = {
@@ -212,7 +219,7 @@ class ImageViewer extends React.Component {
 
     return (
       <div className={style.container}>
-        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked >
+        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked beforeClose={this.resetZoomIndex} >
           <ZoomModal images={images} index={this.state.zoomIndex} previous={this.previousZoomIndex} next={this.nextZoomIndex} setIndex={this.setZoomIndex} />
         </SkyLight>
         <div className={style.imageViewer}>
