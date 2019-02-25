@@ -23,9 +23,11 @@ class ZoomModal extends React.Component {
               );
             })}
         </div>
-        <div className={style.leftArrow} onClick={previous}>&#x027F5;</div>
-        <div className={style.rightArrow} onClick={next}>&#x027F6;</div>
-        <CarouselIndicator images={images} index={index} setIndex={setIndex} />
+        <div>
+          <div className={style.leftArrow} onClick={previous}>&#x027F5;</div>
+          <div className={style.rightArrow} onClick={next}>&#x027F6;</div>
+          <CarouselIndicator images={images} index={index} setIndex={setIndex} />
+        </div>
       </div>
     );
   }

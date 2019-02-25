@@ -172,7 +172,7 @@ class ImageViewer extends React.Component {
 
   setZoomIndex(e) {
     this.setState({
-      zoomIndex: e.target.getAttribute('index')
+      zoomIndex: Number(e.target.getAttribute('index'))
     });
   }
 
