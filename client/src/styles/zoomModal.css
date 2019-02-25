@@ -22,12 +22,23 @@
 }
 
 .image {
-  max-height: inherit;
-  width: auto;
-  max-width: 100%;
-  margin: auto;
-  display: block;
+  height: 80vh;
+  background-color: #ebedee;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-sizing: border-box;
 }
+
+/*
+ *.image {
+ *  max-height: inherit;
+ *  width: auto;
+ *  max-width: 100%;
+ *  margin: auto;
+ *  display: block;
+ *}
+ */
 
 .leftArrow {
   display: block;

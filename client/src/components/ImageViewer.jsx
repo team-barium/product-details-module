@@ -26,6 +26,8 @@ class ImageViewer extends React.Component {
     this.nextZoomIndex = this.nextZoomIndex.bind(this);
     this.previousZoomIndex = this.previousZoomIndex.bind(this);
     this.setZoomIndex = this.setZoomIndex.bind(this);
+    this.resetZoomIndex = this.resetZoomIndex.bind(this);
+    this.togglePopup = this.togglePopup.bind(this);
   }
 
   componentDidMount() {
@@ -172,7 +174,21 @@ class ImageViewer extends React.Component {
 
   setZoomIndex(e) {
     this.setState({
-      zoomIndex: e.target.getAttribute('index')
+      zoomIndex: Number(e.target.getAttribute('index'))
+    });
+  }
+
+  resetZoomIndex() {
+    this.setState({
+      zoomIndex: this.state.imageIndex,
+      popup: false
+    });
+  }
+
+  togglePopup() {
+    this.popup.show();
+    this.setState({
+      popup: true
     });
   }
 
@@ -212,12 +228,12 @@ class ImageViewer extends React.Component {
 
     return (
       <div className={style.container}>
-        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked >
-          <ZoomModal images={images} index={this.state.zoomIndex} previous={this.previousZoomIndex} next={this.nextZoomIndex} setIndex={this.setZoomIndex} />
+        <SkyLight dialogStyles={zoomModalStyle} closeButtonStyle={closeButtonStyle} ref={ref => this.popup = ref} transitionDuration={0} hideOnOverlayClicked beforeClose={this.resetZoomIndex} >
+          <ZoomModal images={images} index={this.state.zoomIndex} previous={this.previousZoomIndex} next={this.nextZoomIndex} setIndex={this.setZoomIndex} popup={this.state.popup} />
         </SkyLight>
         <div className={style.imageViewer}>
           <div className={style.imageContainer}>
-            <img className={style.image} src={images[this.state.imageIndex]} onClick={() => this.popup.show()} />
+            <img className={style.image} src={images[this.state.imageIndex]} onClick={this.togglePopup} />
             <div className={style.leftArrow} onClick={this.previousImage}>
               <div className={style.arrowShadow}>&#x027F5;</div>
               <div className={style.arrow}>&#x027F5;</div>
