@@ -21,8 +21,8 @@
 .indicator {
   display: flex;
   align-items: flex-end;
-  height: 12px;
-  padding: 10px 3px;
+  height: 8px;
+  padding: 14px 3px;
   cursor: pointer;
 }
 
