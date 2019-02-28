@@ -12,7 +12,7 @@ class Hero extends React.Component {
     this.state = {
       loadedData: false,
       productDetails: null,
-        /* Example Details
+      /* Example Details
           availableColors: [1, 2, 3]
           colors: ["Cloud White", "Grey", "Ash Pearl"]
           heartToggle: false
@@ -31,7 +31,7 @@ class Hero extends React.Component {
           thumbnails: ["image url"]
         */
       availableColorImages: []
-    }
+    };
     this.fetchProduct = this.fetchProduct.bind(this);
     this.changeColor = this.changeColor.bind(this);
   }
@@ -43,31 +43,17 @@ class Hero extends React.Component {
   fetchProduct(productId) {
     axios
       .get('/abibas/product', { params: { id: productId } })
-      .then((response) => {
+      .then(({ data }) => {
+        console.log(data);
         this.setState({
-          productDetails: response.data.product,
-          availableColorImages: response.data.colorThumbnails,
+          productDetails: data,
+          availableColorImages: [data.images[0]],
           loadedData: true
         });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
-      })
-  }
-
-  fetchProductColor(productId) {
-    axios
-      .get('/abibas/color', { params: { id: productId } })
-      .then((response) => {
-        this.setState({
-          productDetails: response.data.product,
-          availableColorImages: response.data.colorThumbnails,
-          loadedData: true
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+      });
   }
 
   changeColor(e) {
@@ -78,20 +64,22 @@ class Hero extends React.Component {
   render() {
     if (this.state.loadedData) {
       let { salePrice, retailPrice, images } = this.state.productDetails;
-      let sale = 100 - salePrice / retailPrice * 100;
+      let sale = Math.floor(100 - (salePrice / retailPrice) * 100);
       return (
         <div className={style.background}>
           <ProductInfoMobile details={this.state.productDetails} />
           <div className={style.container}>
             <ImageViewer images={images} />
             <SaleBadge sale={sale} />
-            <OrderInfo details={this.state.productDetails} availableColorImages={this.state.availableColorImages} changeColor={this.changeColor} />
+            <OrderInfo
+              details={this.state.productDetails}
+              availableColorImages={this.state.availableColorImages}
+            />
             <div className={style.bar} />
           </div>
-          <div className={style.background}>
-          </div>
+          <div className={style.background} />
         </div>
-        );
+      );
     } else {
       return null;
     }

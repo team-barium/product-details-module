@@ -7,25 +7,46 @@ import CartForm from './CartForm';
 class OrderInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {};
   }
 
   render() {
-    let { name, tags, retailPrice, salePrice, reviewCount, reviewRating, colors, availableColors, sizes, productId, heartToggle } = this.props.details;
+    let {
+      name,
+      tags,
+      retailPrice,
+      salePrice,
+      reviewCount,
+      reviewRating,
+      colors,
+      availableColors,
+      sizes,
+      productId,
+      heartToggle
+    } = this.props.details;
     let { availableColorImages } = this.props;
     return (
       <div className={style.container}>
         <div className={style.background}>
           <div className={style.infoBar}>
-            <ProductInfo name={name} tags={tags} reviewCount={reviewCount} reviewRating={reviewRating} retailPrice={retailPrice} salePrice={salePrice} />
-            <ColorChooser colors={colors} colorImages={availableColorImages} colorIds={availableColors} productId={productId} changeColor={this.props.changeColor} />
+            <ProductInfo
+              name={name}
+              tags={tags}
+              reviewCount={reviewCount}
+              reviewRating={reviewRating}
+              retailPrice={retailPrice}
+              salePrice={salePrice}
+            />
+            <ColorChooser
+              colors={colors}
+              colorImages={availableColorImages}
+              productId={productId}
+            />
             <CartForm sizes={sizes} heartToggle={heartToggle} />
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

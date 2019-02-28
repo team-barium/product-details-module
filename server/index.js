@@ -16,6 +16,5 @@ app.use(parser.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use('/abibas/product', fetchProduct);
-app.use('/abibas/color', fetchProduct);
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));

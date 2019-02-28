@@ -4,8 +4,10 @@ mongoose.connect('mongodb://localhost/abibas', { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
-db.on('error', (err) => console.log('Failed to connect to database', err));
-db.once('open', () => { console.log('Connected to database'); });
+db.on('error', err => console.log('Failed to connect to database', err));
+db.once('open', () => {
+  console.log('Connected to database');
+});
 
 const productSchema = new mongoose.Schema({
   productId: {
@@ -15,9 +17,6 @@ const productSchema = new mongoose.Schema({
   },
   name: String,
   images: {
-    type: [String]
-  },
-  thumbnails: {
     type: [String]
   },
   sizes: {
@@ -43,8 +42,7 @@ const productSchema = new mongoose.Schema({
   reviewRating: Number,
   tags: [String],
   colors: [String],
-  heartToggle: Boolean,
-  availableColors: [Number],
+  heartToggle: Boolean
 });
 
 const Product = mongoose.model('Product', productSchema);

@@ -5,7 +5,7 @@ import Hero from './Hero';
 const ProductDetailsApp = ({ productId }) => {
   return (
     <div className={style.container}>
-      <Hero productId={productId}/>
+      <Hero productId={productId} />
     </div>
   );
 };
