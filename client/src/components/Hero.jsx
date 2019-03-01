@@ -44,7 +44,6 @@ class Hero extends React.Component {
     axios
       .get('/abibas/product', { params: { id: productId } })
       .then(({ data }) => {
-        console.log(data);
         this.setState({
           productDetails: data,
           availableColorImages: [data.images[0]],

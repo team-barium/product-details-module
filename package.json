@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/index.js",
     "build": "webpack -d --watch",
-    "seed": "node ./db/seed.js"
+    "seed-mongo": "node ./mongodb/seed.js",
+    "seed-postgres": "node ./postgresdb/seed.js"
   },
   "repository": {
     "type": "git",
@@ -42,10 +43,13 @@
     "faker": "^4.1.0",
     "mongoose": "^5.4.10",
     "morgan": "^1.9.1",
+    "node-cmd": "^3.0.0",
     "nodemon": "^1.18.9",
+    "pg": "^7.8.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-skylight": "^0.5.1",
+    "sequelize": "^4.42.1",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2"
   }
