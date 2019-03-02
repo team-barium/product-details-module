@@ -1,4 +1,4 @@
-const { fetch } = require('../db/models.js');
+const { fetch } = require('../postgresdb/models.js');
 
 module.exports = {
   fetchProduct: (req, res) => {

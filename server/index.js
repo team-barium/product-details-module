@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const PORT = 3002;
 
+require('../postgresdb/seed');
 const { fetchProduct } = require('./controllers.js');
 
 const app = express();

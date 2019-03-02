@@ -6,17 +6,17 @@ const sequelize = new Sequelize('abibas', 'minasorsok', '', {
 const Product = sequelize.define(
   'product',
   {
-    product_id: { type: Sequelize.INTEGER, primaryKey: true },
+    productId: { type: Sequelize.INTEGER, primaryKey: true },
     name: Sequelize.STRING,
     images: Sequelize.ARRAY(Sequelize.STRING),
     sizes: Sequelize.JSON,
-    retail_price: Sequelize.REAL,
-    sale_price: Sequelize.REAL,
-    review_count: Sequelize.REAL,
-    review_rating: Sequelize.REAL,
+    retailPrice: Sequelize.REAL,
+    salePrice: Sequelize.REAL,
+    reviewCount: Sequelize.REAL,
+    reviewRating: Sequelize.REAL,
     tags: Sequelize.ARRAY(Sequelize.STRING),
     colors: Sequelize.ARRAY(Sequelize.STRING),
-    heart_toggle: Sequelize.BOOLEAN
+    heartToggle: Sequelize.BOOLEAN
   },
   { timestamps: false }
 );
