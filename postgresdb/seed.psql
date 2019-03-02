@@ -1,0 +1,1 @@
+COPY products FROM './data.json' DELIMITER ',' CSV;
