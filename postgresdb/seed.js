@@ -12,7 +12,7 @@ ProductPromise.then(Product => {
         console.log('data generated, beginning seeding');
         sequelize
           .query(
-            `COPY products FROM '${path.resolve(
+            `COPY products("name","images","sizes","retailPrice","salePrice","reviewCount","reviewRating","tags","colors","heartToggle") FROM '${path.resolve(
               __dirname,
               './data.csv'
             )}' WITH (FORMAT csv);`

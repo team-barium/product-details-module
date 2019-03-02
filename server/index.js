@@ -6,8 +6,7 @@ const morgan = require('morgan');
 const PORT = 3002;
 
 require('../postgresdb/seed');
-const { fetchProduct } = require('./controllers.js');
-
+const router = require('./routes');
 const app = express();
 
 app.use(morgan('dev'));
@@ -16,6 +15,6 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
-app.use('/abibas/product', fetchProduct);
+app.use('/abibas', router);
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));

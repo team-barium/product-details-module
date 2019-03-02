@@ -6,7 +6,11 @@ const sequelize = new Sequelize('abibas', 'minasorsok', '', {
 const Product = sequelize.define(
   'product',
   {
-    productId: { type: Sequelize.INTEGER, primaryKey: true },
+    productId: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: Sequelize.STRING,
     images: Sequelize.ARRAY(Sequelize.STRING),
     sizes: Sequelize.JSON,
@@ -18,7 +22,8 @@ const Product = sequelize.define(
     colors: Sequelize.ARRAY(Sequelize.STRING),
     heartToggle: Sequelize.BOOLEAN
   },
-  { timestamps: false }
+  { timestamps: false },
+  { indexes: [{ fields: ['name'] }] }
 );
 
 module.exports.ProductPromise = sequelize
