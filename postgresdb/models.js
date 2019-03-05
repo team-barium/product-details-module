@@ -3,7 +3,6 @@ const Promise = require('bluebird');
 
 module.exports = {
   dbFetch: productId => {
-    console.log(productId);
     return ProductPromise.then(Product =>
       Product.findOne({ where: { productId } })
     );

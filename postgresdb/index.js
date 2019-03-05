@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('abibas', 'minasorsok', '', {
-  dialect: 'postgres'
+  dialect: 'postgres',
+  logging: () => {}
 });
 
 const Product = sequelize.define(
@@ -29,4 +30,5 @@ const Product = sequelize.define(
 module.exports.ProductPromise = sequelize
   .authenticate()
   .then(() => Product.sync());
+
 module.exports.sequelize = sequelize;
