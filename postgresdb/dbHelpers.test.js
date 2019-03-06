@@ -66,6 +66,7 @@ describe('DB CRUD Operations', () => {
     let productId = Math.floor(Math.random() * 1e6 + 9e6);
     await dbUpdate(productId, genericProduct);
     let updatedProduct = await dbFetch(productId);
+    delete updatedProduct.productId;
     return expect(updatedProduct).toEqual(genericProduct);
   });
 

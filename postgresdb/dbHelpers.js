@@ -2,17 +2,13 @@ const { pgPool } = require('./index');
 
 module.exports = {
   dbFetch: productId => {
-    console.log(productId);
     return pgPool
       .query(
         `SELECT * 
       FROM products 
       WHERE "productId" = ${productId};`
       )
-      .then(res => {
-        console.log(res);
-        return res.rows[0];
-      });
+      .then(res => res.rows[0]);
   },
 
   dbCreate: product => {
@@ -32,10 +28,7 @@ module.exports = {
           ${product.heartToggle}
         ) RETURNING "productId";`
       )
-      .then(res => {
-        console.log(res);
-        return res.rows[0].productId;
-      });
+      .then(res => res.rows[0].productId);
   },
 
   dbUpdate: (productId, newProduct) => {

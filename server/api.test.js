@@ -56,13 +56,9 @@ describe('API CRUD Operations', () => {
     let response = await request(app)
       .post('/abibas/product')
       .send(genericProduct);
-
-    return expect(response.body.productId)
-      .toBeGreaterThan(9999999)
-      .then(() => {
-        delete response.body.productId;
-        return expect(response.body).toEqual(genericProduct);
-      });
+    expect(response.body.productId).toBeGreaterThan(9999999);
+    delete response.body.productId;
+    return expect(response.body).toEqual(genericProduct);
   });
 
   test('server responds to PUT request', async () => {
@@ -80,13 +76,8 @@ describe('API CRUD Operations', () => {
     let deleteResponse = await request(app).delete(
       `/abibas/product/${productId}`
     );
-    return expect(deleteResponse.status)
-      .toBe(200)
-      .then(async () => {
-        let getResponse = await request(app).get(
-          `/abibas/product/${productId}`
-        );
-        return expect(getResponse.status).toBe(404);
-      });
+    expect(deleteResponse.status).toBe(200);
+    let getResponse = await request(app).get(`/abibas/product/${productId}`);
+    return expect(getResponse.status).toBe(404);
   });
 });

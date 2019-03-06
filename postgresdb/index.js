@@ -38,7 +38,5 @@ const Product = sequelize.define(
 
 sequelize.authenticate().then(() => Product.sync());
 
-pgPool.on('connect', () => console.log('connected with pg'));
-
 module.exports.sequelize = sequelize;
 module.exports.pgPool = pgPool;
