@@ -1,4 +1,13 @@
+const dotenv = require('dotenv');
+const dotenvExpand = require('dotenv-expand');
+const myEnv = dotenv.config();
+dotenvExpand(myEnv);
+
 const Sequelize = require('sequelize');
+
+const { Pool } = require('pg');
+const pgPool = new Pool();
+
 const sequelize = new Sequelize('abibas', 'minasorsok', '', {
   dialect: 'postgres',
   logging: () => {}
@@ -27,8 +36,9 @@ const Product = sequelize.define(
   { indexes: [{ fields: ['name'] }] }
 );
 
-module.exports.ProductPromise = sequelize
-  .authenticate()
-  .then(() => Product.sync());
+sequelize.authenticate().then(() => Product.sync());
+
+pgPool.on('connect', () => console.log('connected with pg'));
 
 module.exports.sequelize = sequelize;
+module.exports.pgPool = pgPool;

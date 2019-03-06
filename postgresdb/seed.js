@@ -1,4 +1,4 @@
-const { ProductPromise, sequelize } = require('./index.js');
+const { ProductPromise } = require('./models.js');
 const generateData = require('./generateData');
 const path = require('path');
 const fs = require('fs');
