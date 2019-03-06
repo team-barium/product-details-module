@@ -3,27 +3,34 @@ const {
   dbCreate,
   dbUpdate,
   dbDelete
-} = require('../postgresdb/models.js');
+} = require('../postgresdb/dbHelpers.js');
 
 module.exports = {
   getProduct: (req, res) => {
     let productId = Number(req.params.id);
     dbFetch(productId)
-      .then(product => res.status(200).json(product))
+      .then(product => {
+        if (product) {
+          res.status(200).json(product);
+        } else {
+          res.status(404).end();
+        }
+      })
       .catch(() => res.status(404).end());
   },
   createProduct: (req, res) => {
-    let product = req.body.product;
+    let product = req.body;
     dbCreate(product)
-      .then(product => res.status(201).json(product))
+      .then(productId =>
+        res.status(201).json(Object.assign({ productId }, product))
+      )
       .catch(() => res.status(404).end());
   },
   updateProduct: (req, res) => {
-    let newProduct = req.body.product;
+    let newProduct = req.body;
     let productId = Number(req.params.id);
-    if (productId !== newProduct.productId) return res.status(404).end();
     dbUpdate(productId, newProduct)
-      .then(() => res.status(200).json('update successful'))
+      .then(productId => res.status(200).end(productId))
       .catch(() => res.status(404).end());
   },
   deleteProduct: (req, res) => {
