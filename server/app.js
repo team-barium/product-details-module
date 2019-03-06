@@ -3,9 +3,8 @@ const path = require('path');
 const parser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const PORT = 3002;
 
-require('../postgresdb/seed');
+// require('../postgresdb/seed');
 const router = require('./routes');
 const app = express();
 
