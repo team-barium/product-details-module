@@ -29,9 +29,15 @@ let genericProduct = {
   heartToggle: false
 };
 describe('DB CRUD Operations', () => {
+  beforeAll(async () => {
+    // eliminate initial connection setup from times
+    await dbFetch(12929);
+  });
   test('can fetch from DB', async () => {
-    let productId = Math.floor(Math.random() * 1e6 + 9e6);
+    let productId = Math.floor(Math.random() * 1e7);
+    let readStart = process.hrtime();
     let product = await dbFetch(productId);
+    console.log(process.hrtime(readStart)[1] / 1e6);
     expect(product).toEqual(
       expect.objectContaining({
         productId: expect.any(Number),
@@ -50,7 +56,9 @@ describe('DB CRUD Operations', () => {
   });
 
   test('can create new product', async () => {
+    let createStart = process.hrtime();
     let productId = await dbCreate(genericProduct);
+    console.log(process.hrtime(createStart)[1] / 1e6);
     let newProduct = await dbFetch(productId);
     return expect(newProduct).toEqual(
       Object.assign(
@@ -63,16 +71,20 @@ describe('DB CRUD Operations', () => {
   });
 
   test('can update product', async () => {
-    let productId = Math.floor(Math.random() * 1e6 + 9e6);
+    let productId = Math.floor(Math.random() * 1e7);
+    let updateStart = process.hrtime();
     await dbUpdate(productId, genericProduct);
+    console.log(process.hrtime(updateStart)[1] / 1e6);
     let updatedProduct = await dbFetch(productId);
     delete updatedProduct.productId;
     return expect(updatedProduct).toEqual(genericProduct);
   });
 
   test('can delete product', async () => {
-    let productId = Math.floor(Math.random() * 1e6 + 9e6);
+    let productId = Math.floor(Math.random() * 1e7);
+    let deleteStart = process.hrtime();
     let res = await dbDelete(productId);
+    console.log(process.hrtime(deleteStart)[1] / 1e6);
     let response = await dbFetch(productId);
     expect(response).toBe(undefined);
   });
