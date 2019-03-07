@@ -1,4 +1,4 @@
-const app = require('./app');
+const { app, initializeApp } = require('./app');
 const request = require('supertest');
 
 let genericProduct = {
@@ -32,6 +32,9 @@ let genericProduct = {
 };
 
 describe('API CRUD Operations', () => {
+  beforeAll(async () => {
+    await initializeApp();
+  });
   test('server responds to GET request', async () => {
     let productId = Math.floor(Math.random() * 1e6 + 9e6);
     let response = await request(app).get(`/abibas/product/${productId}`);

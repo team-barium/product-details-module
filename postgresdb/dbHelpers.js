@@ -1,14 +1,25 @@
 const { pgPool } = require('./index');
 
 module.exports = {
-  dbFetch: productId => {
-    return pgPool
-      .query(
-        `SELECT * 
+  dbFetch: product => {
+    if (typeof product === 'number') {
+      return pgPool
+        .query(
+          `SELECT * 
       FROM products 
-      WHERE "productId" = ${productId};`
-      )
-      .then(res => res.rows[0]);
+      WHERE "productId"=${product};`
+        )
+        .then(res => res.rows[0]);
+    } else {
+      return pgPool
+        .query(
+          `SELECT * 
+      FROM products 
+      WHERE "name"='${product}'
+      LIMIT 1;`
+        )
+        .then(res => (res.rows.length ? res.rows[0] : null));
+    }
   },
 
   dbCreate: product => {
