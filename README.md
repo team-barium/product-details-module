@@ -6,7 +6,7 @@
 #### Color Picker
 ![COLOR PICKER GIF](https://media.giphy.com/media/FOUAxYiiKgadQAI178/giphy.gif)
 #### Dropdown Menus + Buttons
-![DROPDOWN + BUTTONS GIF](https://media.giphy.com/media/FOUAxYiiKgadQAI178/giphy.gif)
+![DROPDOWN + BUTTONS GIF](https://media.giphy.com/media/5wFl7r7Sk0EC920O8A/giphy.gif)
 #### Popup Modal + Mouseover Zoom
 ![ZOOM MODAL GIF](https://media.giphy.com/media/Dr2020M2dHwBoO9naq/giphy.gif)
 #### Responsiveness
