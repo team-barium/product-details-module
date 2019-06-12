@@ -1,4 +1,4 @@
-# Product Details Component of Adidas Replica
+# Product Details Component of Adidas Demo
 
 ## Features
 #### Responsiveness
